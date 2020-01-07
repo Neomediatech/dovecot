@@ -1,16 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
+DEBUG="${DEBUG:-}"
 [ "$DEBUG" == 'true' ] && set -x
 
-LOGFILE=/data/logs/dovecot.log
+LOGDIR="/data/logs"
+[ ! -d "${LOGDIR}" ] && mkdir -p $LOGDIR
+LOGFILE="${LOGDIR}/dovecot.log"
 if [ ! -f $LOGFILE ]; then
   touch $LOGFILE
 fi
 chmod 666 $LOGFILE
-chown 5000:5000 /data/home
-chmod 775 /data/home
+HOMEDIRS="${HOMEDIRS:-/data/home}"
+[ ! -d "${HOMEDIRS}" ] && mkdir -p $HOMEDIRS
+chown 5000:5000 $HOMEDIRS
+chmod 775 $HOMEDIRS
 
 if [ ! -f /etc/dovecot/fullchain.pem ]; then
   cp /etc/ssl/dovecot/server.pem /etc/dovecot/fullchain.pem
@@ -25,9 +30,11 @@ if [ -f /servername_cert ]; then
   fi
 fi
 
-if [ ! -f /data/common/dh-dovecot.pem ]; then
-  openssl dhparam 2048 > /data/common/dh-dovecot.pem
+COMMONDIR="${COMMONDIR:-/data/common}"
+[ ! -d "${COMMONDIR}" ] && mkdir -p $COMMONDIR
+if [ ! -f "${COMMONDIR}/dh-dovecot.pem" ]; then
+  openssl dhparam 2048 > "${COMMONDIR}/dh-dovecot.pem"
 fi
 
-exec tail -f /data/logs/dovecot.log &
+exec tail -f "$LOGFILE" &
 exec "$@"
