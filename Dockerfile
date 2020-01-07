@@ -21,10 +21,10 @@ RUN apt update && apt install -y --no-install-recommends curl gpg gpg-agent apt-
     rm -rf /etc/dovecot && mkdir /srv/mail && chown vmail:vmail /srv/mail && \
     make-ssl-cert generate-default-snakeoil && \
     mkdir /etc/dovecot && ln -s /etc/ssl/certs/ssl-cert-snakeoil.pem /etc/dovecot/fullchain.pem && \
-    ln -s /etc/ssl/private/ssl-cert-snakeoil.key /etc/dovecot/privkey.pem
+    ln -s /etc/ssl/private/ssl-cert-snakeoil.key /etc/dovecot/privkey.pem && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY dovecot.conf dovecot-ssl.cnf /etc/dovecot/
-
 COPY entrypoint.sh /
 COPY bin/* /usr/local/sbin/
 RUN chmod +x /entrypoint.sh /usr/local/sbin/*
