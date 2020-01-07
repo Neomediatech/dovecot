@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 	echo " "
 	exit 1
 fi
-u=$(echo $1|tr -cd [A-Za-z0-9-.])
+u=$(echo $1|tr -cd [A-Za-z0-9-._])
 row="$(grep -q $u $pwfile)"
 if [ $? -ne 0 ]; then
 	echo "l'utente $u non esiste"
