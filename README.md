@@ -6,15 +6,14 @@
 ![](https://img.shields.io/github/last-commit/Neomediatech/dovecot-alpine.svg?style=plastic)
 ![](https://img.shields.io/github/repo-size/Neomediatech/dovecot-alpine.svg?style=plastic)
 
-# dovecot-alpine
-Dockerized version of Dovecot, based on Alpine Linux
+Dockerized version of Dovecot, based on Ubuntu
 
 ## Usage
 You can run this container with this command:  
-`docker run -d --name dovecot-alpine -p 110:110 -p 143:143 -p 993:993 -p 995:995 neomediatech/dovecot-alpine`  
+`docker run -d --name dovecot -p 110:110 -p 143:143 -p 993:993 -p 995:995 neomediatech/dovecot`  
 
 Logs are written inside the container, in /var/log/dovecot/dovecot.log, and on stdout. You can see realtime logs running this command:  
-`docker logs -f dovecot-alpine`  
+`docker logs -f dovecot`  
 `CTRL c` to stop seeing logs.  
 
 If you want to map logs outside the container you can add:  
@@ -28,7 +27,7 @@ version: '3'
 
 services:  
   dovecot:  
-    image: neomediatech/dovecot-alpine:latest  
+    image: neomediatech/dovecot:latest  
     hostname: dovecot  
     ports:  
       - '110:110'  
