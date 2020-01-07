@@ -1,10 +1,7 @@
-
-# WARN! WIP!! YHBW
-
-[![](https://images.microbadger.com/badges/version/neomediatech/dovecot-alpine.svg)](https://microbadger.com/images/neomediatech/dovecot-alpine)
-[![](https://images.microbadger.com/badges/image/neomediatech/dovecot-alpine.svg)](https://microbadger.com/images/neomediatech/dovecot-alpine)
-![](https://img.shields.io/github/last-commit/Neomediatech/dovecot-alpine.svg?style=plastic)
-![](https://img.shields.io/github/repo-size/Neomediatech/dovecot-alpine.svg?style=plastic)
+[![](https://images.microbadger.com/badges/version/neomediatech/dovecot.svg)](https://microbadger.com/images/neomediatech/dovecot)
+[![](https://images.microbadger.com/badges/image/neomediatech/dovecot.svg)](https://microbadger.com/images/neomediatech/dovecot)
+![](https://img.shields.io/github/last-commit/Neomediatech/dovecot.svg?style=plastic)
+![](https://img.shields.io/github/repo-size/Neomediatech/dovecot.svg?style=plastic)
 
 Dockerized version of Dovecot, based on Ubuntu
 
