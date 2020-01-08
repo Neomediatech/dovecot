@@ -10,7 +10,7 @@ LABEL maintainer="docker-dario@neomediatech.it" \
       org.label-schema.vcs-url=https://github.com/Neomediatech/$SERVICE \
       org.label-schema.maintainer=Neomediatech
 
-RUN apt update && apt install -y --no-install-recommends curl gpg gpg-agent apt-transport-https ca-certificates ssl-cert && \
+RUN apt update && apt install -y --no-install-recommends vim curl gpg gpg-agent apt-transport-https ca-certificates ssl-cert && \
     curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import && \
     gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg && \
     echo "deb https://repo.dovecot.org/ce-2.3-latest/ubuntu/bionic bionic main" > /etc/apt/sources.list.d/dovecot.list && \
