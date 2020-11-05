@@ -31,7 +31,7 @@ RUN chmod +x /entrypoint.sh /usr/local/sbin/*
 
 EXPOSE 110 143 993 995
 
-HEALTHCHECK --interval=10s --timeout=5s --start-period=10s --retries=5 CMD doveadm service status 1>/dev/null && echo 'At your service, sir' || exit 1
+HEALTHCHECK --interval=10s --timeout=5s --start-period=90s --retries=5 CMD doveadm service status 1>/dev/null && echo 'At your service, sir' || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/tini", "--", "dovecot","-F"]
