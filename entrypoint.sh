@@ -30,6 +30,10 @@ if [ -f /servername_cert ]; then
   fi
 fi
 
+if [ -f /run/secrets/dovecot-fqdn-cert.txt ]; then
+    MAILSERVER_CERT="$(cat /run/secrets/dovecot-fqdn-cert.txt)"
+fi
+
 if [ -n "$MAILSERVER_CERT" ]; then
     sed -i "s/^ssl_cert.*$/ssl_cert = <\/data\/certs\/live\/$MAILSERVER_CERT\/fullchain\.pem/" /etc/dovecot/dovecot.conf
     sed -i "s/^ssl_key.*$/ssl_key = <\/data\/certs\/live\/$MAILSERVER_CERT\/privkey.pem/" /etc/dovecot/dovecot.conf
