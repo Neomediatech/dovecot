@@ -1,6 +1,6 @@
 FROM neomediatech/ubuntu-base:18.04
 
-ENV VERSION=2.3.11.3-3+ubuntu18.04 \
+ENV VERSION=2.3.14-5+ubuntu18.04 \
     SERVICE=dovecot \
     OS=ubuntu
 
