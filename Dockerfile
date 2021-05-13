@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends vim curl gpg gp
     curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import && \
     gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg && \
     echo "deb https://repo.dovecot.org/ce-2.3-latest/ubuntu/bionic bionic main" > /etc/apt/sources.list.d/dovecot.list && \
+    apt-get update && \
     apt-get install -y --no-install-recommends dovecot-core dovecot-imapd dovecot-lmtpd \
             dovecot-mysql dovecot-pop3d dovecot-sieve dovecot-sqlite dovecot-submissiond && \
     groupadd -g 5000 vmail && useradd -u 5000 -g 5000 vmail -d /srv/vmail && passwd -l vmail && \
