@@ -1,6 +1,12 @@
 #!/bin/bash
 
 pwfile="/data/files/pwd"
+if [ ! -f "$pwfile" ]; then
+	echo '!!! ATTENZIONE !!!'
+	echo "il file $pwfile non esiste"
+	echo "non posso continuare"
+	exit 99
+fi
 if [ -z "$1" ]; then
 	echo " "
 	echo "Inserisci il nome utente da creare "
@@ -38,4 +44,13 @@ else
 fi
 echo " "
 
-
+mh="/data/home"
+if [ ! -f "$mh/$u/.forward" ]; then
+	mkdir -p "$mh/$u"
+	echo '# Exim filter' > "$mh/$u/.forward"
+	echo ' ' >> "$mh/$u/.forward"
+	chown vmail:vmail "$mh/$u/.forward"
+	chmod 600 "$mh/$u/.forward"
+fi
+mkdir -p "$mh/$u/Maildir/cur" "$mh/$u/Maildir/new" "$mh/$u/Maildir/tmp"
+chown vmail:vmail "$mh/$u" "$mh/$u/Maildir" "$mh/$u/Maildir/cur" "$mh/$u/Maildir/new" "$mh/$u/Maildir/tmp"
