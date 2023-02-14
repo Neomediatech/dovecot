@@ -1,6 +1,6 @@
 FROM neomediatech/ubuntu-base:20.04
 
-ENV VERSION=2.3.17-3+ubuntu20.04\
+ENV VERSION=2.3.20-3+ubuntu20.04\
     SERVICE=dovecot \
     OS=ubuntu
 
