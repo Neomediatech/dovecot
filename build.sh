@@ -1,1 +1,1 @@
-docker build . -t dovecot-alpine
+docker build . -t dovecot
