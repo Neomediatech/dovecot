@@ -96,3 +96,5 @@ Asymmetric Private Key
 
 -----------------------------------
 mer 16 lug 2025, 18:21:52, CEST --- ghcr.io/neomediatech/dovecot:2.4 NOT SCANNED
+-----------------------------------
+mer 16 lug 2025, 18:22:36, CEST --- ghcr.io/neomediatech/dovecot:2.3 NOT SCANNED
