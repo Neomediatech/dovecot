@@ -20,7 +20,7 @@ jobs:
       derived-image-prefix: ghcr.io/neomediatech/dovecot
       force-build: "false"
       update-image: "true"
-      image-type: "generic"
+      image-type: "dovecot"
       package-to-check: "dovecot-core"
       skip-type-from-base-image: "true"
     secrets:
