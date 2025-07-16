@@ -1,3 +1,4 @@
 mer 16 lug 2025, 17:37:26, CEST --- ghcr.io/neomediatech/dovecot:2.4 UPDATED (image build needed: true)
 mer 16 lug 2025, 17:39:52, CEST --- ghcr.io/neomediatech/dovecot:2.3 UPDATED (image build needed: true)
 mer 16 lug 2025, 17:43:13, CEST --- ghcr.io/neomediatech/dovecot:2.4 UPDATED (image build needed: true)
+mer 16 lug 2025, 18:21:52, CEST --- ghcr.io/neomediatech/dovecot:2.4 not-needed (image build needed: false)
