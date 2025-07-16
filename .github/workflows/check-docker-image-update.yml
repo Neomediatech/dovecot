@@ -21,6 +21,8 @@ jobs:
       force-build: "false"
       update-image: "true"
       image-type: "generic"
+      package-to-check: "dovecot-core"
+      skip-type-from-base-image: "true"
     secrets:
       NOTIFY_CMD: ${{ secrets.NOTIFY_CMD }}
       NOTIFY_UP: ${{ secrets.NOTIFY_UP }}
