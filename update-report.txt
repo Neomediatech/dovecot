@@ -1,1 +1,2 @@
 mer 16 lug 2025, 17:36:47, CEST --- ghcr.io/neomediatech/dovecot:2.4 UPDATED
+mer 16 lug 2025, 17:39:19, CEST --- ghcr.io/neomediatech/dovecot:2.3 UPDATED
