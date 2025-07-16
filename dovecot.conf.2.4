@@ -1,0 +1,136 @@
+#
+dovecot_config_version = 2.4.1
+dovecot_storage_version = 2.4.1
+
+listen = *
+protocols = imap 
+#lmtp
+auth_mechanisms = plain login
+auth_allow_cleartext = yes
+mail_max_userip_connections = 100
+
+mail_plugins = $mail_plugins quota mail_log notify
+
+service imap-login {
+  client_limit = 1000
+  process_limit = 512
+}
+protocol imap {
+  mail_plugins = $mail_plugins quota imap_quota
+}
+
+#service lmtp {
+#  process_min_avail = 15
+#  unix_listener /data/common/dovecot-lmtp {
+#   group = vmail
+#   mode = 0666
+#   user = vmail
+#  }
+#  inet_listener lmtp {
+#    #address = 127.0.0.1 10.2.0.1
+#    port = 24
+#  }
+#
+#}
+
+#protocol lmtp {
+#  mail_plugins = $mail_plugins 
+#  auth_username_format = %n
+#  userdb {
+#    args = /etc/dovecot/dovecot-sql-lmtp.conf
+#    driver = sql
+#  }
+#}
+
+verbose_proctitle = yes
+
+log_path = /data/logs/dovecot.log
+
+# Log unsuccessful authentication attempts and the reasons why they failed.
+auth_verbose = yes
+# In case of password mismatches, log the attempted password. Valid values are
+# no, plain and sha1. sha1 can be useful for detecting brute force password
+# attempts vs. user simply trying the same password over and over again.
+# You can also truncate the value to n chars by appending ":n" (e.g. sha1:6).
+#auth_verbose_passwords = yes
+
+# Even more verbose logging for debugging purposes. Shows for example SQL
+# queries.
+auth_debug = yes
+
+first_valid_uid = 1000
+
+# In case of password mismatches, log the passwords and used scheme so the
+# problem can be debugged. Enabling this also enables auth_debug.
+#auth_debug_passwords = yes
+
+# Enable mail process debugging. This can help you figure out why Dovecot
+# isn't finding your mails.
+#mail_debug = yes
+
+# Show protocol level SSL errors.
+#verbose_ssl = yes
+
+mail_driver = maildir
+mail_path = ~/Maildir
+
+ssl = yes
+ssl_server_cert_file = /etc/dovecot/fullchain.pem
+ssl_server_key_file = /etc/dovecot/privkey.pem
+ssl_server_dh_file = /data/common/dh-dovecot.pem
+
+#ssl_cert = </etc/dovecot/fullchain.pem
+#ssl_key = </etc/dovecot/privkey.pem
+#ssl_protocols = !SSLv2 !SSLv3
+ssl_cipher_list = ALL:!LOW:!SSLv2:!EXP:!aNULL:!RC4::!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS
+#ssl_dh=</data/common/dh-dovecot.pem
+
+login_greeting = service ready
+
+#plugin {
+#        stats_refresh = 30 secs
+#        stats_track_cmds = yes
+#}
+
+#service stats {
+#  fifo_listener stats-mail {
+#    user = root
+#    mode = 0666
+#  }
+#  inet_listener {
+#    address = 127.0.0.1
+#    port = 24242
+#  }
+#}
+
+passdb passwd-file {
+  driver = passwd-file
+  passwd_file_path = /data/files/pwd
+}
+userdb passwd-file {
+  driver = passwd-file
+  passwd_file_path = /data/files/pwd
+  fields {
+    uid:default = vmail
+    gid:default = vmail
+    home:default = /data/home/%{user}
+  }
+}
+
+service auth {
+  unix_listener /data/common/dovecot-auth {
+    group = vmail
+    mode = 0666
+    user = vmail
+  }
+  user = root
+}
+
+service auth-worker {
+  # This should be enough:
+  group = shadow
+  # If not, just give full root permissions:
+  #user = root
+}
+
+!include_try conf.d/*.conf
