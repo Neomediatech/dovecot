@@ -5,6 +5,15 @@ on:
     # Esegui ogni giorno alle 04:00 UTC per controllare gli aggiornamenti.
     #- cron: '0 4 * * *'
   workflow_dispatch:
+    inputs:
+      force-build:
+        description: 'Forza la generazione delle immagini?'
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
 
 permissions:
   contents: write
@@ -15,10 +24,7 @@ jobs:
   build-image:
     uses: Neomediatech/gh-workflows/.github/workflows/build-docker-image-bulk.yml@main
     with:
-      base-image: ghcr.io/neomediatech/ubuntu-base:24.04
-      package-name: neomediatech/dovecot
-      derived-image-prefix: ghcr.io/neomediatech/dovecot
-      force-build: "false"
+      force-build: "${{ github.event.inputs.force-build }}"
       update-image: "true"
       image-type: "dovecot"
       package-to-check: "dovecot-core"
