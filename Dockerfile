@@ -1,14 +1,9 @@
-FROM neomediatech/ubuntu-base:24.04
+FROM ghcr.io/neomediatech/ubuntu-base:24.04
 
-ENV VERSION=2.3.21\
-    SERVICE=dovecot \
-    OS=ubuntu
+ENV SERVICE=dovecot
 
-LABEL maintainer="docker-dario@neomediatech.it" \
-      org.label-schema.version=$VERSION \
-      org.label-schema.vcs-type=Git \
-      org.label-schema.vcs-url=https://github.com/Neomediatech/$SERVICE \
-      org.label-schema.maintainer=Neomediatech
+LABEL org.opencontainers.image.source=https://github.com/Neomediatech/${SERVICE} \
+      org.opencontainers.package.name=dovecot-core
 
 RUN apt-get update && apt-get install -y --no-install-recommends vim curl gpg gpg-agent apt-transport-https ca-certificates ssl-cert \
     dovecot-core dovecot-imapd dovecot-lmtpd dovecot-mysql dovecot-pop3d dovecot-sieve dovecot-sqlite dovecot-submissiond && \
