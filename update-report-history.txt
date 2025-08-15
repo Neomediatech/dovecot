@@ -1,1 +1,4 @@
 mer 13 ago 2025, 11:01:55, UTC --- ghcr.io/neomediatech/dovecot:latest done (image build needed: true)
+ven 15 ago 2025, 15:26:30, UTC --- ghcr.io/neomediatech/dovecot:2.4 done (image build needed: true)
+ven 15 ago 2025, 15:26:32, UTC --- ghcr.io/neomediatech/dovecot:2.3 done (image build needed: true)
+ven 15 ago 2025, 15:26:32, UTC --- ghcr.io/neomediatech/dovecot:latest done (image build needed: true)
