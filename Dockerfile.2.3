@@ -3,7 +3,8 @@ FROM ghcr.io/neomediatech/ubuntu-base:24.04
 ENV SERVICE=dovecot
 
 LABEL org.opencontainers.image.source=https://github.com/Neomediatech/${SERVICE} \
-      org.opencontainers.package.name=dovecot-core
+      org.opencontainers.package.name=dovecot-core \
+      it.neomediatech.app-label=dovecot
 
 RUN apt-get update && apt-get install -y --no-install-recommends vim curl gpg gpg-agent apt-transport-https ca-certificates ssl-cert \
     dovecot-core dovecot-imapd dovecot-lmtpd dovecot-mysql dovecot-pop3d dovecot-sieve dovecot-sqlite dovecot-submissiond && \
