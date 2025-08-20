@@ -1,4 +1,4 @@
-ven 15 ago 2025, 15:27:07, UTC --- ghcr.io/neomediatech/dovecot:2.3
+mer 20 ago 2025, 20:13:41, CEST --- ghcr.io/neomediatech/dovecot:2.3
 
 Report Summary
 
@@ -56,7 +56,7 @@ Asymmetric Private Key
 
 
 -------------------------------------------------------
-ven 15 ago 2025, 15:27:07, UTC --- ghcr.io/neomediatech/dovecot:2.4
+mer 20 ago 2025, 20:13:47, CEST --- ghcr.io/neomediatech/dovecot:2.4
 
 Report Summary
 
@@ -108,13 +108,13 @@ Asymmetric Private Key
   24 │ ****************************************************************
   25 │ ****************************************************************
   26 │ ****************************************************************
-  27 └ ************************
+  27 └ ****************************
   28   -----END PRIVATE KEY-----
 ────────────────────────────────────────
 
 
 -------------------------------------------------------
-ven 15 ago 2025, 15:27:12, UTC --- ghcr.io/neomediatech/dovecot:latest
+mer 20 ago 2025, 20:13:43, CEST --- ghcr.io/neomediatech/dovecot:latest
 
 Report Summary
 
