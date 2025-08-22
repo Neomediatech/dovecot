@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.source=https://github.com/Neomediatech/${SERVICE}
       org.opencontainers.package.name=dovecot-core \
       it.neomediatech.app-label=dovecot
 
-RUN apt-get update && apt-get install -y --no-install-recommends vim curl gpg gpg-agent apt-transport-https ca-certificates ssl-cert && \
+RUN apt-get update && apt-get install -y --no-install-recommends vim gpg gpg-agent apt-transport-https ssl-cert && \
     curl https://repo.dovecot.org/DOVECOT-REPO-GPG-2.4 | gpg --dearmor -o /usr/share/keyrings/dovecot.gpg && \
     echo 'deb [signed-by=/usr/share/keyrings/dovecot.gpg] https://repo.dovecot.org/ce-2.4-latest/ubuntu/noble noble main' > /etc/apt/sources.list.d/dovecot.list && \
     apt-get update && apt-get install -y --no-install-recommends dovecot-core dovecot-imapd dovecot-lmtpd dovecot-mysql dovecot-pop3d dovecot-sieve dovecot-sqlite dovecot-submissiond && \
