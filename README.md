@@ -70,3 +70,9 @@ Where "/folder/path/on-host/logs/" is a folder inside your host. You have to cre
 
 Save on a file and then run:  
 `docker stack deploy -c /your-docker-compose-file-just-created.yml dovecot`  
+
+## Users
+```
+/data/files/pwd:
+user:{plain}pass:1000:1000::/data/home/user::userdb_mail=maildir:~/Maildir
+```
