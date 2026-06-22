@@ -8,3 +8,6 @@ mer 20 ago 2025, 20:13:14, CEST --- ghcr.io/neomediatech/dovecot:2.4 done (image
 lun 9 feb 2026, 12:01:18, CET --- ghcr.io/neomediatech/dovecot:latest done (image build needed: true)
 lun 9 feb 2026, 12:01:24, CET --- ghcr.io/neomediatech/dovecot:2.3 done (image build needed: true)
 lun 9 feb 2026, 12:01:24, CET --- ghcr.io/neomediatech/dovecot:2.4 done (image build needed: true)
+lun 22 giu 2026, 18:45:56, CEST --- ghcr.io/neomediatech/dovecot:2.3 done (image build needed: true)
+lun 22 giu 2026, 18:45:57, CEST --- ghcr.io/neomediatech/dovecot:latest done (image build needed: true)
+lun 22 giu 2026, 18:45:59, CEST --- ghcr.io/neomediatech/dovecot:2.4 done (image build needed: true)
